@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support SOP</title>
+    <style>
+        body {
+            background-color: #dedede;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .ag-format-container {
+            width: 1142px;
+            margin: 0 auto;
+        }
+        .ag-courses_box {
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            padding: 50px 0;
+        }
+        .ag-courses_item {
+            flex-basis: calc(33.33333% - 30px);
+            margin: 0 15px 30px;
+            overflow: hidden;
+            border-radius: 28px;
+        }
+        .ag-courses-item_link {
+            display: block;
+            padding: 30px 20px;
+            background-color: #002401;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none; /* Add this line to remove the underline */
+
+        }
+        .ag-courses-item_link:hover,
+        .ag-courses-item_link:hover .ag-courses-item_date {
+            text-decoration: none;
+            color: #FFF;
+        }
+        .ag-courses-item_link:hover .ag-courses-item_bg {
+            transform: scale(10);
+        }
+        .ag-courses-item_title {
+            min-height: 87px;
+            margin: 0 0 25px;
+            overflow: hidden;
+            font-weight: bold;
+            font-size: 30px;
+            color: #FFF;
+            z-index: 2;
+            position: relative;
+        }
+        .ag-courses-item_date-box {
+            font-size: 18px;
+            color: #FFF;
+            z-index: 2;
+            position: relative;
+        }
+        .ag-courses-item_date {
+            font-weight: bold;
+            color: #18b83b;
+            transition: color .5s ease;
+        }
+        .ag-courses-item_bg {
+            height: 128px;
+            width: 128px;
+            background-color: #09a32a;
+            z-index: 1;
+            position: absolute;
+            top: -75px;
+            right: -75px;
+            border-radius: 50%;
+            transition: all .5s ease;
+        }
+        .ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+            background-color: #09a32a;
+        }
+        .ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+            background-color: #09a32a;
+        }
+        .ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+            background-color: #09a32a;
+        }
+        .ag-courses_item:nth-child(5n) .ag-courses-item_bg {
+            background-color: #09a32a;
+        }
+        .ag-courses_item:nth-child(6n) .ag-courses-item_bg {
+            background-color: #09a32a;
+        }
+        @media only screen and (max-width: 979px) {
+            .ag-courses_item {
+                flex-basis: calc(50% - 30px);
+            }
+            .ag-courses-item_title {
+                font-size: 24px;
+            }
+        }
+        @media only screen and (max-width: 767px) {
+            .ag-format-container {
+                width: 96%;
+            }
+        }
+        @media only screen and (max-width: 639px) {
+            .ag-courses_item {
+                flex-basis: 100%;
+            }
+            .ag-courses-item_title {
+                min-height: 72px;
+                line-height: 1;
+                font-size: 24px;
+            }
+            .ag-courses-item_link {
+                padding: 22px 40px;
+            }
+            .ag-courses-item_date-box {
+                font-size: 16px;
+            }
+        }
+        img.img-fluid {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    margin: 10px; /* Optional: Adds some space from the edges */
+    max-width: 220px; /* Optional: Sets a maximum width to ensure it doesn't occupy too much space */
+
+
+}
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed positioning */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.7); /* Black with opacity */
+    overflow: hidden; /* Prevent scrolling of the modal background */
+}
+
+.modal-content {
+    background-color: #ffffff; /* Dark background for the modal */
+    margin: auto; /* Center the modal */
+    padding: 20px;
+    width: 80%; /* Width of the modal */
+    max-width: 600px; /* Maximum width for larger screens */
+    border-radius: 10px;
+    color: rgb(0, 0, 0); /* Set text color to black */
+    position: relative; /* Ensure position context for centering */
+    top: 50%; /* Move down 50% of the viewport height */
+    transform: translateY(-50%); /* Adjust to center vertically */
+    max-height: 80vh; /* Maximum height of the modal */
+    overflow-y: auto; /* Enable vertical scrolling for the content */
+    max-height: 80vh; /* Maximum height of the modal */
+    overflow-y: auto; /* Enable vertical scrolling for the content */
+}
+
+/* Custom scrollbar styles */
+.modal-content::-webkit-scrollbar {
+    width: 6px; /* Width of the scrollbar */
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f9f9f9; /* Track color */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #898989; /* Color of the scrollbar handle */
+    border-radius: 10px; /* Rounded corners for the scrollbar handle */
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #000000; /* Darker shade on hover */
+}
+
+.close-button {
+    color: #aaa; /* Color for close button */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: rgb(109, 106, 106); /* Change close button color on hover */
+    text-decoration: none;
+}
+body.no-scroll {
+    overflow: hidden; /* Prevent scrolling */
+}
+    </style>
+</head>
+<body>
+    <img src="test/Icone.png" class="img-fluid" alt="...">
+
+    <div class="ag-format-container">
+        <div class="ag-courses_box">
+            <div class="ag-courses_item">
+                <a href="#" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title"> Purpose </div>
+                    <div class="ag-courses-item_date-box">
+                        Updated at: <span class="ag-courses-item_date">September  2024</span>
+                    </div>
+                </a>
+            </div>
+            <div class="ag-courses_item">
+                <a href="#" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title">Scope</div>
+                    <div class="ag-courses-item_date-box">
+                        Updated at: <span class="ag-courses-item_date">September  2024</span>
+                    </div>
+                </a>
+            </div>
+            <div class="ag-courses_item">
+                <a href="#" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title">Work Schedule</div>
+                    <div class="ag-courses-item_date-box">
+                        Updated at: <span class="ag-courses-item_date">September  2024</span>
+                    </div>
+                </a>
+            </div>
+            <div class="ag-courses_item">
+                <a href="#" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title">Responsibilities</div>
+                    <div class="ag-courses-item_date-box">
+                        Updated at: <span class="ag-courses-item_date">September  2024</span>
+                    </div>
+                </a>
+            </div>
+            <div class="ag-courses_item">
+                <a href="#" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title">Key Metrics (KPIs)</div>
+                    <div class="ag-courses-item_date-box">
+                        Updated at: <span class="ag-courses-item_date">September  2024</span>
+                    </div>
+                </a>
+            </div>
+            <div class="ag-courses_item">
+                <a href="#" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title">Procedure for Handling Tickets</div>
+                    <div class="ag-courses-item_date-box">
+                        Updated at: <span class="ag-courses-item_date">September  2024</span>
+                    </div>
+                </a>
+            </div>
+            <div class="ag-courses_item">
+                <a href="#" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title">Refunds</div>
+                    <div class="ag-courses-item_date-box">
+                        Updated at: <span class="ag-courses-item_date">September  2024</span>
+                    </div>
+                </a>
+            </div>
+            <div class="ag-courses_item">
+                <a href="#" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title">Break Management</div>
+                    <div class="ag-courses-item_date-box">
+                        Updated at: <span class="ag-courses-item_date">September  2024</span>
+                    </div>
+                </a>
+            </div>
+            <div class="ag-courses_item">
+                <a href="#" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title">Escalation and Stakeholder Management</div>
+                    <div class="ag-courses-item_date-box">
+                        Updated at: <span class="ag-courses-item_date">September  2024</span>
+                    </div>
+                </a>
+            </div>
+            <div class="ag-courses_item">
+                <a href="#" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title">Performance Monitoring and Feedback</div>
+                    <div class="ag-courses-item_date-box">
+                        Updated at: <span class="ag-courses-item_date">September  2024</span>
+                    </div>
+                </a>
+            </div>
+            <div class="ag-courses_item">
+                <a href="#" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title">Compliance and Documentation</div>
+                    <div class="ag-courses-item_date-box">
+                        Updated at: <span class="ag-courses-item_date">September  2024</span>
+                    </div>
+                </a>
+            </div>
+            <div class="ag-courses_item">
+                <a href="#" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+                    <div class="ag-courses-item_title">Version Control</div>
+                    <div class="ag-courses-item_date-box">
+                        Updated at: <span class="ag-courses-item_date">September  2024</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="contentText"></div>
+        </div>
+    </div>
+    <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById("modal");
+    const closeButton = document.querySelector(".close-button");
+    const contentText = document.getElementById("contentText");
+
+    const cardContent = {
+        "Purpose":    ` <h1>Purpose</h1>
+    <p>
+        To provide clear guidelines for managing customer support inquiries through Sendbird, 
+        ensuring timely resolutions, customer satisfaction, and compliance with company policies.
+    </p>`,
+        "Scope": ` <h2>Scope</h2>
+    <p>
+        This SOP applies to all Customer Support Agents handling inquiries related to orders placed 
+        via the elGrocer by Smiles application, including complaints, escalations, refunds, and 
+        ticket closures.
+    </p>`,
+        "Work Schedule":`    <h2>Work Schedule</h2>
+    <ul>
+        <li><strong>Working Hours:</strong> 9 hours per day, 1 day off per week.</li>
+        <li><strong>Breaks:</strong> 1-hour split into two 30-minute breaks.</li>
+    </ul>`,
+        "Responsibilities": `    <h2>Responsibilities</h2>
+    <ul>
+        <li><strong>Customer Support Agents (CSRs):</strong> Handle customer complaints and inquiries, aiming to resolve issues efficiently and professionally.</li>
+        <li><strong>SPOCS:</strong> Oversee performance, handle escalations and refund approvals, communicate with other departments, conduct quality audits, review and submit refunds on Kissflow, monitor queue status, resolve complaints received from Smiles and Etisalat, contact customers who submit negative feedback to resolve their concerns, and ensure adherence to SOP.</li>
+    </ul>`,
+        "Key Metrics (KPIs)": `     <h2>Key Metrics (KPIs)</h2>
+    <ul>
+        <li><strong>Average Response Time (ART):</strong> Target = 30 seconds.</li>
+        <li><strong>Average Handling Time (AHT):</strong> Target = 30 minutes per ticket.</li>
+        <li><strong>Customer Satisfaction (CSAT):</strong> Maintain an average of 4.7 or above.</li>
+        <li><strong>Quality Audits:</strong> The average score should be 90% and above.</li>
+    </ul>`,
+        "Procedure for Handling Tickets": `     <h2>Procedure for Handling Tickets</h2>
+    <ol>
+        <li><strong>Greeting the Customer:</strong>
+            <ul>
+                <li>Begin with a professional, friendly greeting.</li>
+                <li>Example: "Welcome to Smiles Market! How can I assist you today?"</li>
+            </ul>
+        </li>
+        <li><strong>Identify the Query:</strong>
+            <ul>
+                <li><strong>Categorize the issue:</strong>
+                    <ul>
+                        <li><strong>Order Issues:</strong> Late delivery, wrong/damaged/missing items, rescheduling.</li>
+                        <li><strong>Payment Issues:</strong> Refund inquiries, online payment failure, changing payment methods.</li>
+                        <li><strong>App Issues:</strong> Technical support for Shopper/Pickers app, catalog errors.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><strong>Investigation:</strong>
+            <ul>
+                <li>Verify order details using internal tools (order dashboard, payment systems).</li>
+                <li>For payment-related queries, verify transaction status.</li>
+            </ul>
+        </li>
+        <li><strong>Provide a Resolution:</strong>
+            <ul>
+                <li>Offer solutions based on the query type:
+                    <ul>
+                        <li><strong>Order Issues:</strong> Coordinate with logistics or marketplace teams.</li>
+                        <li><strong>Payment Issues:</strong> Initiate refunds or confirm payment status.</li>
+                        <li><strong>App Issues:</strong> Provide guidance or escalate to technical teams.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><strong>Escalation Process:</strong>
+            <ul>
+                <li>Escalate unresolved issues to the relevant Slack channel based on store type:
+                    <ul>
+                        <li><strong>Dark Stores:</strong> smiles-market-escalations</li>
+                        <li><strong>Dedicated Stores:</strong> marketplace-logistics</li>
+                        <li><strong>Partial & Non-Dedicated Stores:</strong> ops-excellence-cs-mp-logs</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><strong>Update the Customer:</strong>
+            <ul>
+                <li>Keep the customer informed about the status of their issue.</li>
+                <li>Apologize for any delays and ensure the customer their issue is being resolved.</li>
+            </ul>
+        </li>
+        <li><strong>Close the Ticket:</strong>
+            <ul>
+                <li>Confirm with the customer if any further assistance is required before closing.</li>
+            </ul>
+        </li>
+    </ol>`,
+        "Refunds":`    <h2>Refunds</h2>
+    <ol>
+        <li><strong>Calculate the Refund:</strong>
+            <ul>
+                <li>Correctly calculate the refund amount depending on the case, including the cost of the item, delivery fees, etc.</li>
+            </ul>
+        </li>
+        <li><strong>Request Refund Approval:</strong>
+            <ul>
+                <li>Submit a refund approval request via Slack to the channel: CS-Approvals.</li>
+            </ul>
+        </li>
+        <li><strong>Process Refund Based on Payment Type:</strong>
+            <ul>
+                <li><strong>For Online Payments or Cash on Delivery (COD):</strong>
+                    <ul>
+                        <li>Raise the refund request through Kissflow using the Sendbird widget and select Refund Request.</li>
+                        <li>If the customer requests a bank refund, try to convince them that elWallet refunds are faster and more efficient for future orders.</li>
+                        <li>If the customer insists on a bank refund, raise the request on the Online Payment Sheet.</li>
+                    </ul>
+                </li>
+                <li><strong>For elWallet, Smiles Points, or COD Refunds:</strong>
+                    <ul>
+                        <li>Raise the refund via Kissflow using Sendbird and select Promo Code Request.</li>
+                    </ul>
+                </li>
+                <li><strong>For Tabby Refunds:</strong>
+                    <ul>
+                        <li>Raise the refund request to the Online Payment Sheet for processing by the finance team.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><strong>Notify the Customer:</strong>
+            <ul>
+                <li>Communicate the refund details to the customer, including expected processing times:
+                    <ul>
+                        <li><strong>Refunds processed through Kissflow:</strong> Usually take 24 hours to reflect in the customer’s account.</li>
+                        <li><strong>Bank account refunds:</strong> This may take 3-5 business days, depending on the customer’s bank policies.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ol>
+`, "Break Management": `
+    <h2>Break Management</h2>
+    <ul>
+        <li>Agents are entitled to two 30-minute breaks during their shift.</li>
+        <li>Breaks must not overlap with peak support hours to ensure sufficient coverage.</li>
+    </ul>
+`, "Escalation and Stakeholder Management":  `
+<h2>Escalation and Stakeholder Management</h2>
+<ul>
+    <li>Escalate unresolved issues promptly using the appropriate Slack channels depending on store type:
+        <ul>
+            <li><strong>Dark Stores:</strong> smiles-market-escalations</li>
+            <li><strong>Dedicated Stores:</strong> marketplace-logistics</li>
+            <li><strong>Partial & Non-Dedicated Stores:</strong> ops-excellence-cs-mp-logs</li>
+        </ul>
+    </li>
+</ul>
+
+`, "Performance Monitoring and Feedback": `
+<h2>Performance Monitoring and Feedback</h2>
+<ul>
+    <li>Monitor Average Response Time (ART) and Average Handling Time (AHT) to ensure targets are met.</li>
+    <li>Regularly review Customer Satisfaction (CSAT) scores and quality audits for continuous improvement.</li>
+</ul>
+
+`, "Compliance and Documentation": `
+
+<h2>Compliance and Documentation</h2>
+<ul>
+    <li>All customer interactions must be logged in the Sendbird tool.</li>
+    <li>Document escalations and ticket updates clearly in internal systems.</li>
+</ul>
+
+`, "Version Control": `
+<h2>Version Control</h2>
+<ul>
+    <li><strong>Version:</strong> 1.1</li>
+    <li><strong>Last Updated:</strong> September 2024</li>
+    <li><strong>Next Review:</strong> January 2025</li>
+    <li><strong>Reviewed by:</strong> Customer Support Manager</li>
+</ul>
+
+`
+    };
+
+    document.querySelectorAll('.ag-courses_item').forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default anchor click behavior
+            const title = this.querySelector('.ag-courses-item_title').textContent.trim();
+            contentText.innerHTML = cardContent[title]; // Set the content HTML
+            modal.style.display = "block"; // Show the modal
+            document.body.classList.add('no-scroll'); // Add class to prevent body scrolling
+
+        });
+    });
+
+    closeButton.addEventListener('click', function() {
+        modal.style.display = "none"; // Hide the modal
+        document.body.classList.remove('no-scroll'); // Remove class to allow scrolling again
+
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none"; // Hide the modal if outside of it is clicked
+            document.body.classList.remove('no-scroll'); // Remove class to allow scrolling again
+
+        }
+    });
+});
+    </script>
+</body>
+</html>
